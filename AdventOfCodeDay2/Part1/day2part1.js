@@ -22,4 +22,4 @@ function SumInvalidID(filePath) {
     return total_sum;
 }
 console.log("Answer: ", SumInvalidID(filePath));
-//# sourceMappingURL=adventofcodeday2part1.js.map
+//# sourceMappingURL=day2part1.js.map

@@ -23,4 +23,4 @@ function solveSafe(filePath) {
     return total_number;
 }
 console.log(solveSafe(filePath));
-//# sourceMappingURL=adventofcodeday1part1.js.map
+//# sourceMappingURL=day1part1.js.map

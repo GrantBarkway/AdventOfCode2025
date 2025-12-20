@@ -37,4 +37,4 @@ function solveSafe(filePath) {
     return total_number;
 }
 console.log("Answer: ", solveSafe(filePath));
-//# sourceMappingURL=adventofcodeday1part2.js.map
+//# sourceMappingURL=day1part2.js.map
