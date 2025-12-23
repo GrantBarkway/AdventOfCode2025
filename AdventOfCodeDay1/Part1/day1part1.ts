@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 
-const filePath: string = 'AdventOfCodeDay1/Part2/adventofcode1_input.txt';
+const filePath: string = 'AdventOfCodeDay1/AOC1_input.txt';
 
 function solveSafe(filePath: string) {
     const content: string = fs.readFileSync(filePath, 'utf-8')

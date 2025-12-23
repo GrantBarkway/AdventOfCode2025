@@ -1,6 +1,6 @@
 import * as fs from 'fs'
 
-const filePath: string = 'AdventOfCodeDay1/Part1/adventofcode1_input.txt'
+const filePath: string = 'AdventOfCodeDay1/AOC1_input.txt'
 
 
 function solveSafe(filePath: string) {

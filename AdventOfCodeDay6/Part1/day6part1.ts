@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 
-const filePath: string = 'AdventOfCodeDay6/Part1/adventofcode6_input.txt';
+const filePath: string = 'AdventOfCodeDay6/AOC6_input.txt';
 
 const content: string = fs.readFileSync(filePath, 'utf-8')
 const lines: string[] = content.split(/\r?\n/);

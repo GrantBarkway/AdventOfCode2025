@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 
-const filePath: string = 'AdventOfCodeDay2/Part1/adventofcode2_input.txt';
+const filePath: string = 'AdventOfCodeDay2/AOC2_input.txt';
 
 function SumInvalidID(filePath: string) {
     const content: string = fs.readFileSync(filePath, 'utf-8')
