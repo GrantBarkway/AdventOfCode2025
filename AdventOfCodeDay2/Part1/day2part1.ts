@@ -10,7 +10,7 @@ const day2part1 = (input: string): number =>{
     const sum_invalid_ids = content.split(",")
     .map(range => [Number(range.split("-")[0]), Number(range.split("-")[1])])
     // Creates an array of all values in the range
-    .map(start => Array.from(Array(start[1] - start[0] + 1),(x,i)=>i + start[0]))
+    .map(start => Array.from(Array(start[1]! - start[0]! + 1),(x,i)=>i + start[0]!))
     // Puts all values in nested arrays into one single array
     .flat(1)
     // Removes all ID's that are not invalid
