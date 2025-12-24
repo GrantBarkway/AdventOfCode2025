@@ -1,32 +1,23 @@
 import * as fs from 'fs';
 
 const filePath: string = 'AdventOfCodeDay2/AOC2_input.txt';
+const content: string = fs.readFileSync(filePath, 'utf-8')
 
-function SumInvalidID(filePath: string) {
-    const content: string = fs.readFileSync(filePath, 'utf-8')
+// Regex for numbers repeated exactly twice
+const repeatedNumberRegex = new RegExp('^(\\d+)\\1{1}$');
 
-    const id_ranges = content.split(",")
-    
-    const id_range_list = id_ranges.map(range => [Number(range.split("-")[0]), Number(range.split("-")[1])])
-    
-    let total_sum = 0
-
-    let start_index
-    let end_index
-    for ([start_index, end_index] of id_range_list) {
-        if ((start_index !== undefined) && (end_index !== undefined)) {
-            for(start_index; start_index <= end_index; start_index++) {
-                let start_index_string = start_index.toString()
-                if (start_index_string.length % 2 == 0) {
-                    if (start_index_string.slice(0,start_index_string.length/2) == start_index_string.slice(start_index_string.length/2)) {
-                        total_sum += start_index
-                    }
-                }
-            }
-        }
-    }
-
-    return total_sum
+const day2part1 = (input: string): number =>{
+    const sum_invalid_ids = content.split(",")
+    .map(range => [Number(range.split("-")[0]), Number(range.split("-")[1])])
+    // Creates an array of all values in the range
+    .map(start => Array.from(Array(start[1] - start[0] + 1),(x,i)=>i + start[0]))
+    // Puts all values in nested arrays into one single array
+    .flat(1)
+    // Removes all ID's that are not invalid
+    .filter(x => repeatedNumberRegex.test(x.toString()))
+    // Sums all unvalid ID's
+    .reduce((a,b) => a + b, 0)
+    return sum_invalid_ids
 }
 
-console.log("Answer: ", SumInvalidID(filePath))
+console.log("Sum of invalid ids: ", day2part1(content))
