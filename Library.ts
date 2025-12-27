@@ -36,3 +36,6 @@ export const Sum = (a: number, b: number): number => a + b
 
 export const MaxBy = <T>(f: (t: T) => number) => (a: T, b: T): T =>
 	f(a) > f(b) ? a : b
+
+export const Transpose = <T>(rows: T[][]): T[][] =>
+    rows[0].map((_, i) => rows.map(row => row[i]))
