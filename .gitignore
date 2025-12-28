@@ -67,3 +67,4 @@ package-lock.json
 *.map
 *.js
 *.d.ts
+*.txt
