@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 
-import { Transpose } from "../../Library.ts";
+import { Transpose } from "../Library.ts";
 
 const filePath: string = 'AdventOfCodeDay6/AOC6_input.txt'
 
