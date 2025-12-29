@@ -14,15 +14,14 @@ const day7part1 = (input: string): number => {
         .map((_,i) => lines
             .slice(1,i+2)
                 .reduce((cur, next) => cur
-                    .split("")
                     // Computes and reassigns the "state" of each row, row by row
                     .map((_,i) => {
                         // Splits the next line to do operations on individual cells
                         const split_next = next.split("")
                         // booleans for if the cell at position i in the current row needs to be updated
-                        const next_cell_split = split_next[i+1] === "^" && (cur[i+1] === "|" || cur[i+1] === "S")
+                        const next_cell_split = split_next[i+1] === "^" && cur[i+1] === "|"
                         const current_cell_downwards = split_next[i] === "." && (cur[i] === "S" || cur[i] ==="|")
-                        const prev_cell_split = split_next[i-1] === "^" && (cur[i-1] === "|" || cur[i-1] === "S")
+                        const prev_cell_split = split_next[i-1] === "^" && cur[i-1] === "|"
                         const next_is_split = split_next[i] === "^" && cur[i] === "|"
                         
                         return next_cell_split || prev_cell_split || current_cell_downwards || next_is_split
@@ -30,12 +29,12 @@ const day7part1 = (input: string): number => {
                                 ? "^"
                                 : "|"
                             : "."
-                    })
-        .join(""),
-    lines[0]))
+                    }),
+                lines[0].split("")
+            )
+        )
         // Removes all rows that do not contain "^"
         .map(x => x
-            .split("")
             .filter(y => y === "^"))
         .filter(x => x.length > 0)
         // Sums the total number of splits
