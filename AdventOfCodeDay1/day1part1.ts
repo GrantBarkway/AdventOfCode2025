@@ -1,30 +1,29 @@
 import * as fs from 'fs';
 
-const filePath: string = 'AdventOfCodeDay1/AOC1_input.txt';
+import { Scan } from "../Library.ts";
 
-function solveSafe(filePath: string) {
-    const content: string = fs.readFileSync(filePath, 'utf-8')
-    const lines: string[] = content.split(/\r?\n/);
+const filePath: string = 'AdventOfCodeDay1/AOC1_input.txt';
+const content: string = fs.readFileSync(filePath, 'utf-8')
+
+const day1part1 = (input: string) => {
+    const lines = input.split(/\r?\n/)
     
-    let total_number: number = 0;
-    let pos: number = 50;
-    let direction: string;
-    let magnitude: number;
-    
-    for (const line of lines) {
-        direction = line.slice(0,1);
-        magnitude = Number.parseInt(line.slice(1));
-        if (direction == "L") {
-            pos = (((pos - magnitude) + 100) % 100) % 100;
-        } else if (direction == "R") {
-            pos = (((pos + magnitude) + 100) % 100) % 100;
-        }
-        
-        if (pos == 0) {
-            total_number += 1;
-        }
-    }
-    return total_number;
+    // Determines all positions of the dial at the end of every rotation
+    return Scan(
+        lines.map(x => {
+            const magnitude = parseInt(x.slice(1))
+            // -magnitude corresponds to counterclockwise (left movement), magnitude corresponds to clockwise (right movement)
+            return x.slice(0,1) === "L"
+                ? -magnitude
+                : magnitude
+            }
+        ),
+        (cur: number, next: number) => (((cur + next) % 100) + 100) % 100,
+        50
+    )
+    // Count the number of 0's
+    .filter(x => x === 0)
+    .length
 }
 
-console.log(solveSafe(filePath))
+console.log(day1part1(content))
