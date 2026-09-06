@@ -4,8 +4,8 @@ const filePath: string = 'AdventOfCodeDay4/AOC4_input.txt';
 
 const content: string = fs.readFileSync(filePath, 'utf-8')
 
-const day4part1 = (input: string) => {
-    const lines = content.split(/\r?\n/);
+export const day4part1 = (input: string) => {
+    const lines = input.split(/\r?\n/);
     const num_rows = lines.length
     const num_cols = lines[0]?.length ?? 0
     const offsets = [1,-1,num_cols,num_cols+1,num_cols-1,-num_cols,-num_cols+1,-num_cols-1]
@@ -39,5 +39,3 @@ const day4part1 = (input: string) => {
         Array.isArray(a) && a.length < 4
     ).length
 }
-
-console.log(day4part1(content))

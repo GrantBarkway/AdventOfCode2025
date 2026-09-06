@@ -25,5 +25,3 @@ const day1part1 = (input: string) => {
     .filter(x => x === 0)
     .length
 }
-
-console.log(day1part1(content))

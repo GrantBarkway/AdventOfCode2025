@@ -22,5 +22,3 @@ const day2part2 = (input: string): number =>
     .filter(x => repeatedNumberRegex.test(x.toString()))
     // Sums all invalid ID's
     .reduce((a,b) => a + b, 0)
-
-console.log("Sum of invalid ids: ", day2part2(content))

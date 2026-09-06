@@ -40,5 +40,3 @@ const day1part2 = (input: string) => {
     .filter(x => !isNaN(x))
     .reduce((a,b) => a + b, 0)
 }
-
-console.log(day1part2(content))
